@@ -109,10 +109,21 @@ const projects = [
 ];
 
 const experience = [
+    {
+    role: "Digitalyst - Cyber Security Intern",
+    org: "Banglalink",
+    orgLogo: "/Bg.webp.jpeg",     // <-- put logo file here
+    period: "Feb 2026 – May 2026",
+    location: "Dhaka, Bangladesh",
+  bullets: [
+    "Led enterprise-scale phishing simulations and security awareness training for 1,100+ employees, strengthening organizational resilience to social engineering.",
+    "Performed vulnerability assessments and SIEM/UEBA-based threat monitoring, including simulated attack scenarios and 30+ new detection use cases.",
+  ],
+  },
   {
     role: "Mentee, Womentor 6.0",
     org: "Banglalink",
-    orgLogo: "/Bg.webp",     // <-- put logo file here
+    orgLogo: "/Bg.webp.jpeg",     // <-- put logo file here
     period: "Dec 2024 – Jun 2025",
     location: "Dhaka, Bangladesh",
     bullets: [
@@ -120,17 +131,7 @@ const experience = [
       "Mapped communication pipelines and produced concise leadership updates for mini-projects.",
     ],
   },
-  {
-    role: "Mathematics Teacher (SAT)",
-    org: "College Mastermind",
-    orgLogo: "/Ms.jpg", // <-- and here
-    period: "Mar 2024 – Sep 2024",
-    location: "Remote, USA",
-    bullets: [
-      "Raised average SAT Math scores by ~20% for 15+ students with targeted remediation plans.",
-      "Authored 30+ practice sets; tracked weekly metrics to reduce repeated errors and time overruns.",
-    ],
-  },
+
 ];
 
 
@@ -147,21 +148,78 @@ const education = [
     where: "Dhaka, Bangladesh",
     when: "Jul 2018 – Sep 2020",
   },
+  {
+    degree: "SSC, Science (GPA 5.00/5.00)",
+    inst: "Holy Cross Girls' High School",
+    where: "Dhaka, Bangladesh",
+    when: "Januart 2016 - May 2018",
+  },
 ];
 
 const skills = {
-  languages: ["Python", "JavaScript", "Java", "C/C++", "C#", "PHP", "SQL", "HTML", "CSS"],
-  frameworks: ["React", "Node.js", "Express", "Django", "Flask", "Material-UI", "OpenGL"],
-  databases: ["MongoDB", "MySQL", "PostgreSQL"],
-  concepts: ["OOP", "DSA", "REST APIs", "MVC", "Authentication", "RBAC", "Unit Testing", "Logistic Regression (NLP intent)"],
-  tools: ["Git & GitHub", "Linux", "VS Code", "PyCharm", "Postman", "Excel/Word/PowerPoint"],
+  languages: [
+    { name: "Python", level: 85 },
+    { name: "JavaScript", level: 80 },
+    { name: "SQL", level: 75 },
+    { name: "Java", level: 65 },
+    { name: "PHP", level: 60 },
+    { name: "C/C++", level: 55 },
+    { name: "HTML", level: 90 },
+    { name: "CSS", level: 85 },
+    { name: "C#", level: 40 },
+  ],
+  frameworks: [
+    { name: "React", level: 85 },
+    { name: "Node.js", level: 80 },
+    { name: "Express", level: 80 },
+    { name: "Django", level: 75 },
+    { name: "Spring Boot", level: 65 },
+    { name: "Flask", level: 60 },
+    { name: "Material-UI", level: 75 },
+    { name: "OpenGL", level: 40 },
+  ],
+  databases: [
+    { name: "PostgreSQL", level: 80 },
+    { name: "MongoDB", level: 75 },
+    { name: "MySQL", level: 75 },
+  ],
+  cybersecurity: [
+    { name: "Tenable Nessus", level: 75 },
+    { name: "CrowdStrike / SIEM", level: 70 },
+    { name: "UEBA & Threat Detection", level: 72 },
+    { name: "Vulnerability Assessment", level: 78 },
+    { name: "Phishing Simulation", level: 80 },
+    { name: "WAF / OWASP", level: 65 },
+    { name: "Incident Response", level: 68 },
+  ],
+  concepts: [
+    { name: "REST APIs", level: 85 },
+    { name: "OOP", level: 85 },
+    { name: "Authentication & RBAC", level: 80 },
+    { name: "DSA", level: 70 },
+    { name: "MVC", level: 75 },
+    { name: "HCI & Usability Research", level: 78 },
+    { name: "Unit Testing", level: 65 },
+    { name: "NLP / ML Basics", level: 55 },
+  ],
+  tools: [
+    { name: "Git & GitHub", level: 85 },
+    { name: "Docker", level: 70 },
+    { name: "Linux / Parrot OS", level: 72 },
+    { name: "Postman", level: 80 },
+    { name: "VS Code / PyCharm", level: 85 },
+    { name: "Excel / Word / PPT", level: 75 },
+  ],
 };
 
 const skillData = [
-  { month:"Jan", score:45 }, { month:"Mar", score:55 }, { month:"May", score:62 },
-  { month:"Jul", score:70 }, { month:"Sep", score:78 }, { month:"Nov", score:85 }
+  { label: "Full-Stack Dev",         detail: "React, Django, Spring Boot, REST APIs",     score: 1 },
+  { label: "Security Operations",    detail: "Nessus, SIEM, UEBA, Phishing Simulation",   score: 2 },
+  { label: "HCI Research",           detail: "Usability testing, Heuristic evaluation",   score: 3 },
+  { label: "RAG & LLM APIs",         detail: "FAISS, SentenceTransformers, Groq, OpenAI", score: 4 },
+  { label: "AI Automation",          detail: "n8n workflows, API chaining, agents",        score: 5 },
+  { label: "ML Training & Tuning",   detail: "Model training, fine-tuning, inference",     score: 6 },
 ];
-
 // ---------- Hooks ----------
 function useActiveSection(ids){
   const [active, setActive] = useState(ids[0]);
@@ -220,18 +278,26 @@ function Hero({ theme, setTheme }){
             className="title"
             ms={2400}
           />
-
           <p className="mb-6 text-muted" style={{maxWidth:640}}>
-            Computer Science graduate with a solid foundation in software engineering and AI/ML — experienced in
-            building, testing, and deploying scalable applications and intelligent systems across full-stack and backend workflows.
-            Focused on reliability, performance, security, and real-world impact.
+            Computer Science graduate building at the intersection of full-stack engineering, cybersecurity, and AI —
+            from shipping production applications and running enterprise security operations to researching
+            human-centered systems and integrating LLMs. I take ownership, stay curious, and care about
+            work that actually matters.
           </p>
           <div style={{display:'flex',flexWrap:'wrap',gap:12,alignItems:'center'}}>
             <a href="#projects" className="btn btn-primary">View Projects <ArrowRight size={18}/></a>
             <a href="/Tasfia_Anika_Resume.pdf" className="btn btn-ghost"><Download size={18}/> Resume</a>
             <a className="icon-btn" href={socials.github} aria-label="GitHub"><Github size={18}/></a>
             <a className="icon-btn" href={socials.linkedin} aria-label="LinkedIn"><Linkedin size={18}/></a>
-            <a className="icon-btn" href={`mailto:${socials.email}`} aria-label="Email"><Mail size={18}/></a>
+            <a 
+              className="icon-btn" 
+              href={`https://mail.google.com/mail/?view=cm&to=${socials.email}`}
+              target="_blank" 
+              rel="noreferrer" 
+              aria-label="Email"
+            >
+              <Mail size={18}/>
+            </a>
             <ThemeToggle theme={theme} setTheme={setTheme} />
           </div>
         </motion.div>
@@ -260,24 +326,69 @@ function About(){
       <div className="container">
         <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} className="mb-6" style={{fontSize:28, fontWeight:700}}>About</motion.h2>
         <div className="grid-2">
-          <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} className="text-muted">
-            I build clean, maintainable software and data-driven features using Python, JavaScript, and modern web frameworks.
-            I enjoy translating real requirements into robust systems, writing reliable tests, and collaborating with cross-functional teams.
-          </motion.p>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}}>
+            <p style={{fontSize:15, lineHeight:1.8, marginBottom:16}}>
+              I'm a Computer Science graduate who sits at the intersection of
+              <span style={{color:'var(--accent, #6366f1)', fontWeight:600}}> software engineering</span>,
+              <span style={{color:'var(--accent, #6366f1)', fontWeight:600}}> cybersecurity</span>, and
+              <span style={{color:'var(--accent, #6366f1)', fontWeight:600}}> AI</span> — and I genuinely
+              enjoy working across all three. I don't just write code to make things run, I think about
+              why systems are built the way they are, where they break, and how to make them more reliable,
+              secure, and useful for real people.
+            </p>
+            <p style={{fontSize:15, lineHeight:1.8, marginBottom:16, color:'var(--muted)'}}>
+              I've shipped full-stack applications, run enterprise-scale security operations for 1,100+ users,
+              and conducted HCI research that bridges technical design with human behavior. I take ownership of whatever I'm working on and push it further than what's asked.
+            </p>
+            <p style={{fontSize:15, lineHeight:1.8, color:'var(--muted)'}}>
+              Right now I'm deep into the AI space — building with RAG pipelines, LLM APIs, n8n automation,
+              and exploring fine-tuning and inference optimization. I'm the kind of person who gets genuinely
+              excited when a new paper drops or a new tool breaks something I thought I understood. That
+              curiosity is what keeps me sharp and is the most honest thing I can tell you about how I work.
+            </p>
+          </motion.div>
+
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}}>
             <div className="card">
               <div className="card-inner">
-                <h3 style={{margin:'0 0 12px', fontWeight:600}}>Learning Velocity (sample)</h3>
-                <div style={{height:200}}>
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={skillData} margin={{top:8,right:8,left:0,bottom:0}}>
-                      <CartesianGrid strokeOpacity={0.15} />
-                      <XAxis dataKey="month" tickMargin={6} fontSize={12} />
-                      <YAxis domain={[0,100]} tickMargin={6} fontSize={12} />
-                      <Tooltip />
-                      <Line type="monotone" dataKey="score" strokeWidth={3} dot={false} />
-                    </LineChart>
-                  </ResponsiveContainer>
+                <h3 style={{margin:'0 0 16px', fontWeight:600}}>My Journey</h3>
+                <div style={{ padding: '8px 0' }}>
+                  {skillData.map((item, i) => (
+                    <div key={item.label} style={{
+                      display: 'flex',
+                      gap: 16,
+                      alignItems: 'flex-start',
+                      marginBottom: i === skillData.length - 1 ? 0 : 20,
+                      position: 'relative'
+                    }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 20 }}>
+                        <div style={{
+                          width: 12, height: 12, borderRadius: '50%', flexShrink: 0, marginTop: 3,
+                          background: i === skillData.length - 1 ? 'var(--accent, #6366f1)' : 'var(--muted)',
+                          boxShadow: i === skillData.length - 1 ? '0 0 8px var(--accent, #6366f1)' : 'none'
+                        }} />
+                        {i < skillData.length - 1 && (
+                          <div style={{ width: 2, flex: 1, minHeight: 28, background: 'rgba(128,128,128,0.2)', marginTop: 4 }} />
+                        )}
+                      </div>
+                      <div style={{ paddingBottom: 4 }}>
+                        <div style={{
+                          fontWeight: 600, fontSize: 14,
+                          color: i === skillData.length - 1 ? 'var(--accent, #6366f1)' : 'inherit'
+                        }}>
+                          {item.label}
+                          {i === skillData.length - 1 && (
+                            <span style={{
+                              marginLeft: 8, fontSize: 11, fontWeight: 500,
+                              background: 'var(--accent, #6366f1)', color: '#fff',
+                              borderRadius: 999, padding: '2px 8px'
+                            }}>Currently learning</span>
+                          )}
+                        </div>
+                        <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 3 }}>{item.detail}</div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -289,35 +400,75 @@ function About(){
 }
 
 function Skills(){
+  const SkillBar = ({ name, level }) => {
+    const [width, setWidth] = useState(0);
+    const ref = React.useRef(null);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setWidth(level); },
+        { threshold: 0.3 }
+      );
+      if (ref.current) observer.observe(ref.current);
+      return () => observer.disconnect();
+    }, [level]);
+
+    return (
+      <div ref={ref} style={{ marginBottom: 10 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+          <span style={{ fontSize: 13 }}>{name}</span>
+          <span style={{ fontSize: 12, color: 'var(--muted)' }}>{level}%</span>
+        </div>
+        <div style={{ background: 'rgba(128,128,128,0.2)', borderRadius: 9999, height: 6 }}>
+          <div style={{
+            width: `${width}%`,
+            background: 'var(--accent, #6366f1)',
+            height: 6,
+            borderRadius: 9999,
+            transition: 'width 1s ease'
+          }} />
+        </div>
+      </div>
+    );
+  };
+
+  const categories = [
+    { title: "Languages",     data: skills.languages,     icon: "🧑‍💻" },
+    { title: "Frameworks",    data: skills.frameworks,    icon: "⚙️" },
+    { title: "Databases",     data: skills.databases,     icon: "🗄️" },
+    { title: "Cybersecurity", data: skills.cybersecurity, icon: "🛡️" },
+    { title: "Concepts",      data: skills.concepts,      icon: "💡" },
+    { title: "Tools",         data: skills.tools,         icon: "🔧" },
+  ];
+
   return (
     <section id="skills" className="section">
       <div className="container">
-        <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}} className="mb-6" style={{fontSize:28, fontWeight:700}}>Skills</motion.h2>
-        <div className="grid-2">
-          <div className="card"><div className="card-inner">
-            <h3 style={{marginTop:0}}>Languages</h3>
-            <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-              {skills.languages.map(s => <span key={s} className="pill">{s}</span>)}
-            </div>
-            <h3 style={{marginTop:16}}>Frameworks</h3>
-            <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-              {skills.frameworks.map(s => <span key={s} className="pill">{s}</span>)}
-            </div>
-          </div></div>
-          <div className="card"><div className="card-inner">
-            <h3 style={{marginTop:0}}>Databases</h3>
-            <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-              {skills.databases.map(s => <span key={s} className="pill">{s}</span>)}
-            </div>
-            <h3 style={{marginTop:16}}>Concepts</h3>
-            <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-              {skills.concepts.map(s => <span key={s} className="pill">{s}</span>)}
-            </div>
-            <h3 style={{marginTop:16}}>Tools</h3>
-            <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-              {skills.tools.map(s => <span key={s} className="pill">{s}</span>)}
-            </div>
-          </div></div>
+        <motion.h2
+          variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}}
+          className="mb-6" style={{fontSize:28, fontWeight:700}}
+        >
+          Skills
+        </motion.h2>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gap: 20
+        }}>
+          {categories.map(({ title, data, icon }) => (
+            <motion.div
+              key={title}
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{once:true}}
+              className="card"
+            >
+              <div className="card-inner">
+                <h3 style={{ marginTop: 0, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span>{icon}</span> {title}
+                </h3>
+                {data.map(s => <SkillBar key={s.name} name={s.name} level={s.level} />)}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -441,7 +592,15 @@ function Contact(){
           I’m open to full-time roles, internships, and collaborations. The fastest way to reach me is by email.
         </motion.p>
         <div className="mt-8" style={{display:'flex', gap:12, flexWrap:'wrap'}}>
-          <a href={`mailto:${socials.email}`} className="btn btn-primary"><Mail size={18}/> {socials.email}</a>
+          <a 
+              className="icon-btn" 
+              href={`https://mail.google.com/mail/?view=cm&to=${socials.email}`}
+              target="_blank" 
+              rel="noreferrer" 
+              aria-label="Email"
+            >
+              <Mail size={18}/>
+            </a>
           <a href={socials.linkedin} className="btn btn-ghost"><Linkedin size={18}/> Connect</a>
           <a href={socials.github} className="btn btn-ghost"><Github size={18}/> GitHub</a>
         </div>
