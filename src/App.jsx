@@ -137,7 +137,7 @@ const experience = [
 
 const education = [
   {
-    degree: "B.Sc. in Computer Science and Engineering",
+    degree: "B.Sc. in Computer Science and Engineering (CGPA 3.41/4.00)",
     inst: "BRAC University",
     where: "Dhaka, Bangladesh",
     when: "Oct 2021 – Oct 2025",
@@ -152,7 +152,7 @@ const education = [
     degree: "SSC, Science (GPA 5.00/5.00)",
     inst: "Holy Cross Girls' High School",
     where: "Dhaka, Bangladesh",
-    when: "Januart 2016 - May 2018",
+    when: "Jan 2016 - May 2018",
   },
 ];
 
